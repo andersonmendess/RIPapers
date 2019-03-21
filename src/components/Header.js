@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     color: DStyles.colors.text,
     fontSize: 20,
     textAlign: 'center',
-    margin: 15
+    margin: 15,
+    fontFamily: DStyles.fonts.bold
   }
 });
 

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         borderRadius: 2,
     },
     text: {
+        fontFamily: DStyles.fonts.bold,
         color: DStyles.colors.text,
         justifyContent: 'center',
         textAlign: 'center',

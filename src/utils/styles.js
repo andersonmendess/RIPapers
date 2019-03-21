@@ -9,5 +9,10 @@ export default {
         secondary: '#121212',
         text: '#fafafa',
         subText: '#ddd',
+    },
+    fonts: {
+        regular: 'GoogleSans-Regular',
+        bold: 'GoogleSans-Bold',
+        medium: 'GoogleSans-Medium'
     }
 }

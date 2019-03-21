@@ -46,15 +46,15 @@ const styles = StyleSheet.create({
     },
     title: {
         color: DStyles.colors.text,
+        fontFamily: DStyles.fonts.medium,
         textAlign: 'center',
-        fontWeight: 'bold',
         margin: 2
     },
     desc: {
+        fontFamily: DStyles.fonts.medium,
         fontSize: 9,
         color: DStyles.colors.subText,
         textAlign: 'center',
-
     }
 });
 
