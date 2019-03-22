@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: DStyles.colors.text,
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     margin: 15,
     fontFamily: DStyles.fonts.bold
