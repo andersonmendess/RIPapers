@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import DStyles from './utils/styles'
 
 import Header from './components/Header'
@@ -10,7 +10,7 @@ export default App => {
 
 	return (
 		<View style={styles.container}>
-			<Header />
+			<Header label='RIPapers' />
 			<TopBtn />
 
 			<WallRender />

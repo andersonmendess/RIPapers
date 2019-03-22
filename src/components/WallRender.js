@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, ToastAndroid } from 'react-native';
+import { FlatList, ToastAndroid } from 'react-native';
 import config from '../utils/api_configs'
 import Card from './Card'
 import axios from 'axios';

@@ -1,15 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import DStyles from '../utils/styles'
 
-class Header extends Component {
-  render() {
+Header = props => {
     return (
       <View style={styles.container} >
-        <Text style={styles.title}>RIPapers</Text>
+        <Text style={styles.title}> {props.label} </Text>
       </View>
     );
-  }
 }
 
 const styles = StyleSheet.create({
