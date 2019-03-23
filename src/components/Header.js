@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
-import DStyles from '../utils/styles'
+import DStyles from '../configs/styles'
 
 Header = props => {
     return (
@@ -13,7 +13,7 @@ Header = props => {
 const styles = StyleSheet.create({
   container: {
     height: 60,
-    backgroundColor: DStyles.colors.secondary,
+    backgroundColor: DStyles.colors.transparent2,
   },
   title: {
     color: DStyles.colors.text,

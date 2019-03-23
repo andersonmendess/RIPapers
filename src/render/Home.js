@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { FlatList, ToastAndroid } from 'react-native';
-import config from '../utils/api_configs'
-import Card from './Card'
+import { ToastAndroid } from 'react-native';
+import config from '../configs/api'
+import CardList from '../components/CardList'
 import axios from 'axios';
 
-class WallRender extends Component {
+class Home extends Component {
 
     state = {
         walls: [],
@@ -53,22 +53,12 @@ class WallRender extends Component {
 
     }
 
-    renderCard = ({ item }) => {
-        return (
-            <Card url={item.webformatURL ? item.webformatURL : item.src.medium}
-                title={item.user ? item.user : item.photographer}
-                desc={item.tags ? item.tags : item.width + 'x' + item.height}
-            />
-        )
-    }
-
     render() {
         return (
-            <FlatList numColumns={3} renderItem={this.renderCard} onEndReached={this.load}
-                onEndReachedThreshold={0.2} data={this.state.walls} keyExtractor={(item, index) => index}
-            />
+            <CardList walls={this.state.walls} load={this.load} />
         )
     }
+
 }
 
-export default WallRender
+export default Home

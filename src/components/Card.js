@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Dimensions, Image } from 'react-native';
-import DStyles from '../utils/styles'
+import DStyles from '../configs/styles'
 
 const Card = props => {
 
@@ -12,7 +12,7 @@ const Card = props => {
               <Image style={styles.image} source={{uri: props.url}}/>
                   <View style={styles.info}>
                       <Text style={styles.title}> { props.title } </Text>
-                      <Text style={styles.desc}> {props.desc ? props.desc : ' - '}</Text>
+                      <Text numberOfLines={1} style={styles.desc}> {props.desc ? props.desc : ' - '}</Text>
                   </View>
               </View>
           </View>
@@ -25,17 +25,15 @@ const Card = props => {
 const styles = StyleSheet.create({
 
     card: {
-        width: Dimensions.get('window').width / 3 - 20,
-        height: Dimensions.get('window').height / 4,
-        borderColor: DStyles.colors.text,
-        borderWidth: 0.5,
-        borderRadius: 2,
-        margin: 10,
-        overflow: 'hidden'
+        width: Dimensions.get('window').width / 3 - 8,
+        height: Dimensions.get('window').height / 3,
+        borderRadius: 6,
+        margin: 4,
+        overflow: 'hidden',
     },
     image: {
         width: '100%' ,
-        height: Dimensions.get('window').height / 4,    
+        height: '100%',    
         position: 'absolute',
     },
     infoContainer: {
@@ -46,16 +44,19 @@ const styles = StyleSheet.create({
     },
     info: {
         padding: 4,
-        paddingBottom: 6,
+        paddingBottom: 8,
+        marginBottom: -1,
         backgroundColor: 'rgba(0,0,0,0.5)',
+        
     },
     title: {
         color: DStyles.colors.text,
         fontFamily: DStyles.fonts.medium,
         textAlign: 'center',
-        margin: 2,
+        margin: 3,
         fontSize: 12,
-        height: 20
+        height: 20,
+        overflow: 'hidden',
     },
     desc: {
         fontFamily: DStyles.fonts.medium,

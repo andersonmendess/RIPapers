@@ -9,6 +9,8 @@ export default {
         secondary: '#121212',
         text: '#fafafa',
         subText: '#ddd',
+        transparent1: 'rgba(0,0,0,0.3)',
+        transparent2: 'rgba(0,0,0,0.4)'
     },
     fonts: {
         regular: 'GoogleSans-Regular',
