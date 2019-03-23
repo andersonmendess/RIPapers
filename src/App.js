@@ -4,7 +4,7 @@ import DStyles from './configs/styles'
 
 import Header from './components/Header'
 import FlatBtn from './components/FlatBtn'
-import Home from './render/Feed'
+import Feed from './render/Feed'
 
 export default App => {
 

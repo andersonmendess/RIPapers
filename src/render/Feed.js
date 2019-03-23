@@ -8,51 +8,57 @@ class Feed extends Component {
 
     state = {
         walls: [],
-        page: 1,
         api: 'unsplash',
-        stop: 0
+        url: "",
+        page: 1,
+        fails: 0
     }
 
     componentDidMount() {
-        this.load()
+        this.setApi()
     }
 
-    load = () => {
+    setApi = () => {
+        api = config[this.state.api]
+
+        url = api.base + api.getKey() + config.common.per_page
+
+        this.setState({ url }, () => { this.fetchWalls() })
+    }
+
+    handleFail = () => {
+        fails = parseInt(this.state.fails)
+
+        if (fails > 4) {
+            this.setState({ api: state.api === 'unsplash' ? 'pixabay' : 'unsplash' }, () => { this.setApi() })
+            fails = 0
+        } else {
+            fails++
+        }
+
+        this.setState({ fails })
+    }
+
+    fetchWalls = () => {
 
         page = parseInt(this.state.page)
 
-        req_props = {
-            pixabay: {
-                url: config.pixabay.base + '&page=' + page
-            },
-            unsplash: {
-                url: config.unsplash.base + '&page=' + page,
-            }
-        }
-
         walls = [...this.state.walls]
 
-        api = req_props[this.state.api]
-
-        axios.get(api.url).then(res => {
+        axios.get(this.state.url + '&page=' + page++).then(res => {
             this.state.api == 'pixabay' ? res = res.data.hits : res = res.data
             walls ? walls = walls.concat(res) : walls = res
-            page++
             this.setState({ walls, page })
             ToastAndroid.show("Using " + this.state.api + " API", ToastAndroid.LONG);
-
         }).catch(e => {
             ToastAndroid.show(e.toString(), ToastAndroid.SHORT);
-            this.setState({ api: this.state.api === 'pixabay' ? 'unsplash' : 'pixabay' },
-                () => this.setState({ stop: parseInt(this.state.stop) + 1 }))
-            if (this.state.stop < 3) this.load()
+            this.handleFail()
         })
-
     }
 
     render() {
         return (
-            <CardList walls={this.state.walls} load={this.load} />
+            <CardList walls={this.state.walls} load={this.fetchWalls} />
         )
     }
 

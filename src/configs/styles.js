@@ -6,7 +6,7 @@ StatusBar.setBackgroundColor('#000')
 export default {
     colors: {
         main: '#000',
-        secondary: '#121212',
+        secondary: '#151618',
         text: '#fafafa',
         subText: '#ddd',
         transparent1: 'rgba(0,0,0,0.3)',

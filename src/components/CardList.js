@@ -6,7 +6,7 @@ CardList = props => {
 
     renderCard = ({ item }) => {
         return (
-            <Card url={item.webformatURL ? item.webformatURL : item.urls.thumb}
+            <Card url={item.webformatURL ? item.webformatURL : item.urls.small}
             title={item.user.name ? item.user.name : item.user}
             desc={item.tags ? item.tags : item.width + 'x' + item.height}
             />
