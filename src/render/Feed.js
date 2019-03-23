@@ -4,12 +4,12 @@ import config from '../configs/api'
 import CardList from '../components/CardList'
 import axios from 'axios';
 
-class Home extends Component {
+class Feed extends Component {
 
     state = {
         walls: [],
         page: 1,
-        api: 'pixabay',
+        api: 'unsplash',
         stop: 0
     }
 
@@ -25,9 +25,8 @@ class Home extends Component {
             pixabay: {
                 url: config.pixabay.base + '&page=' + page
             },
-            pexels: {
-                url: config.pexels.base + '&page=' + page,
-                key: config.pexels.keys[Math.floor((Math.random() * 6))]
+            unsplash: {
+                url: config.unsplash.base + '&page=' + page,
             }
         }
 
@@ -35,10 +34,8 @@ class Home extends Component {
 
         api = req_props[this.state.api]
 
-        if (this.state.api == 'pexels') axios.defaults.headers.common['Authorization'] = api.key
-
         axios.get(api.url).then(res => {
-            this.state.api == 'pixabay' ? res = res.data.hits : res = res.data.photos
+            this.state.api == 'pixabay' ? res = res.data.hits : res = res.data
             walls ? walls = walls.concat(res) : walls = res
             page++
             this.setState({ walls, page })
@@ -46,9 +43,9 @@ class Home extends Component {
 
         }).catch(e => {
             ToastAndroid.show(e.toString(), ToastAndroid.SHORT);
-            this.setState({ api: this.state.api === 'pixabay' ? 'pexels' : 'pixabay' },
+            this.setState({ api: this.state.api === 'pixabay' ? 'unsplash' : 'pixabay' },
                 () => this.setState({ stop: parseInt(this.state.stop) + 1 }))
-            if (this.state.stop < 6) this.load()
+            if (this.state.stop < 3) this.load()
         })
 
     }
@@ -61,4 +58,4 @@ class Home extends Component {
 
 }
 
-export default Home
+export default Feed

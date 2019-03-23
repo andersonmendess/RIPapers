@@ -4,7 +4,7 @@ import DStyles from './configs/styles'
 
 import Header from './components/Header'
 import FlatBtn from './components/FlatBtn'
-import Home from './render/Home'
+import Home from './render/Feed'
 
 export default App => {
 
@@ -18,7 +18,7 @@ export default App => {
 				<FlatBtn label='Settings' icon='settings' press={() => { }} />
 			</View>
 
-			<Home />
+			<Feed />
 
 		</View>
 	);

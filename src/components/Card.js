@@ -11,7 +11,7 @@ const Card = props => {
               <View style={styles.infoContainer}>
               <Image style={styles.image} source={{uri: props.url}}/>
                   <View style={styles.info}>
-                      <Text style={styles.title}> { props.title } </Text>
+                      <Text numberOfLines={1} style={styles.title}> { props.title } </Text>
                       <Text numberOfLines={1} style={styles.desc}> {props.desc ? props.desc : ' - '}</Text>
                   </View>
               </View>
@@ -46,8 +46,7 @@ const styles = StyleSheet.create({
         padding: 4,
         paddingBottom: 8,
         marginBottom: -1,
-        backgroundColor: DStyles.colors.transparent2,
-        
+        backgroundColor: DStyles.colors.transparent2,  
     },
     title: {
         color: DStyles.colors.text,

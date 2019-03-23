@@ -6,16 +6,16 @@ CardList = props => {
 
     renderCard = ({ item }) => {
         return (
-            <Card url={item.webformatURL ? item.webformatURL : item.src.medium}
-                title={item.user ? item.user : item.photographer}
-                desc={item.tags ? item.tags : item.width + 'x' + item.height}
+            <Card url={item.webformatURL ? item.webformatURL : item.urls.thumb}
+            title={item.user.name ? item.user.name : item.user}
+            desc={item.tags ? item.tags : item.width + 'x' + item.height}
             />
         )
     }
 
     return (
         <FlatList numColumns={3} renderItem={renderCard} onEndReached={props.load}
-            onEndReachedThreshold={0.2} data={props.walls} keyExtractor={(item, index) => index}
+            onEndReachedThreshold={0.3} data={props.walls} keyExtractor={(item, index) => index}
         />
     )
 
