@@ -5,27 +5,15 @@ import Icon from 'react-native-vector-icons/Feather'
 
 const FlatBtn = props => {
     return (
-        <View style={{ flexDirection: 'row' }}>
-            <View style={styles.container}>
-
-                <TouchableWithoutFeedback onPress={props.press}>
-                    <View style={styles.btn}>
-                        <Text style={styles.text}><Icon name={props.icon} color='white' /> {props.label} </Text>
-                    </View>
-                </TouchableWithoutFeedback>
-
+        <TouchableWithoutFeedback onPress={props.press}>
+            <View style={styles.btn}>
+                <Text style={styles.text}><Icon name={props.icon} color='white' /> {props.label} </Text>
             </View>
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        margin: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-    },
     btn: {
         width: Dimensions.get('window').width / 3 - 20,
         marginTop: 5,

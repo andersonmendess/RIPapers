@@ -10,14 +10,14 @@ export default WallView => {
 	return (
 		<View style={styles.container}>
 
-			<Image style={styles.image} source={{ uri: "https://images.pexels.com/photos/1966688/pexels-photo-1966688.jpeg" }} />
+			<Image style={styles.image} source={{ uri: "https://images.pexels.com/photos/1646870/pexels-photo-1646870.jpeg" }} />
 
 			<Header style={styles.header} label='RIPapers Alpha' />
 
 			<View style={styles.bottomContainer}>
 
 				<View style={styles.infoContainer}>
-					<Text style={styles.info}>woman in black sweatshirt</Text>
+					<Text style={styles.info}>person standing between concrete building</Text>
 				</View>
 
 				<View style={styles.btnContainer}>

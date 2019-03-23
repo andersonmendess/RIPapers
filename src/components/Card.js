@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
 
     card: {
         width: Dimensions.get('window').width / 3 - 8,
-        height: Dimensions.get('window').height / 3,
-        borderRadius: 6,
+        height: Dimensions.get('window').height / 3 - 20,
+        borderRadius: 3,
         margin: 4,
         overflow: 'hidden',
     },
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
         padding: 4,
         paddingBottom: 8,
         marginBottom: -1,
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: DStyles.colors.transparent2,
         
     },
     title: {
