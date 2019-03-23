@@ -9,7 +9,7 @@ const Card = props => {
         <TouchableWithoutFeedback>
           <View style={styles.card}>
               <View style={styles.infoContainer}>
-              <Image style={styles.image} source={{uri: props.url}}/>
+              <Image style={styles.image} source={ props.url !== '-' ? { uri : props.url} : require('../../assets/img/load.jpg') }/>
                   <View style={styles.info}>
                       <Text numberOfLines={1} style={styles.title}> { props.title } </Text>
                       <Text numberOfLines={1} style={styles.desc}> {props.desc ? props.desc : ' - '}</Text>

@@ -7,9 +7,9 @@ import axios from 'axios';
 class Feed extends Component {
 
     state = {
-        walls: [],
+        walls: new Array(12).fill({ user: "RIPapers Wall's", tags: 'Loading...', webformatURL: '-' }),
         api: 'unsplash',
-        url: "",
+        url: null,
         page: 1,
         fails: 0
     }
@@ -34,6 +34,7 @@ class Feed extends Component {
             fails = 0
         } else {
             fails++
+            this.setApi()
         }
 
         this.setState({ fails })
@@ -41,13 +42,15 @@ class Feed extends Component {
 
     fetchWalls = () => {
 
+        if (!this.state.url) return
+
         page = parseInt(this.state.page)
 
         walls = [...this.state.walls]
 
         axios.get(this.state.url + '&page=' + page++).then(res => {
             this.state.api == 'pixabay' ? res = res.data.hits : res = res.data
-            walls ? walls = walls.concat(res) : walls = res
+            page > 2 ? walls = walls.concat(res) : walls = res
             this.setState({ walls, page })
             ToastAndroid.show("Using " + this.state.api + " API", ToastAndroid.LONG);
         }).catch(e => {

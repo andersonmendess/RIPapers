@@ -24,6 +24,6 @@ export default {
         },
     },
     common: {
-        per_page: '&per_page=30'
+        per_page: '&per_page=40'
     }
 }
