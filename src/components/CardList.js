@@ -5,10 +5,25 @@ import Card from '../components/Card'
 CardList = props => {
 
     renderCard = ({ item }) => {
+
+        try {
+            // url
+            if (item.webformatURL) { // pixabay 
+                url = item.webformatURL
+            } else if (item.urls.small) { // unsplash
+                url = item.urls.small 
+            }
+            // title
+            if (item.user.name) { // pixabay
+                title = item.user.name 
+            } else if (item.user) { // unsplash
+                title = item.description || item.user
+            }
+
+        } catch { return }
+
         return (
-            <Card url={item.webformatURL ? item.webformatURL : item.urls.small }
-            title={item.user.name ? item.user.name : item.user}
-            desc={item.tags ? item.tags : item.width + 'x' + item.height}
+            <Card url={url} title={title}
             />
         )
     }

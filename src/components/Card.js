@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Dimensions, Image, ActivityIndicator } from 'react-native';
 import DStyles from '../configs/styles'
 
 const Card = props => {
 
+    loading = true
+    
     return (
       <View style={styles.container}>
         <TouchableWithoutFeedback>
           <View style={styles.card}>
               <View style={styles.infoContainer}>
-              <Image style={styles.image} source={ props.url !== '-' ? { uri : props.url} : require('../../assets/img/load.jpg') }/>
+              <ActivityIndicator animating={loading} style={{flex: 1, justifyContent: 'center'}} size="large" color={DStyles.colors.subText} />
+              <Image style={styles.image} source={{ uri : props.url }} onLoad={() => {loading = false}}/>
                   <View style={styles.info}>
                       <Text numberOfLines={1} style={styles.title}> { props.title } </Text>
-                      <Text numberOfLines={1} style={styles.desc}> {props.desc ? props.desc : ' - '}</Text>
                   </View>
               </View>
           </View>
@@ -43,25 +45,19 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
     },
     info: {
-        padding: 4,
-        paddingBottom: 8,
-        marginBottom: -1,
-        backgroundColor: DStyles.colors.transparent2,  
+        padding: 2,
+        marginBottom: 10,
+        backgroundColor: DStyles.colors.transparent1,
+        borderRadius: 6,
+        margin: 4
     },
     title: {
         color: DStyles.colors.text,
         fontFamily: DStyles.fonts.medium,
         textAlign: 'center',
-        margin: 3,
-        fontSize: 12,
-        height: 20,
-        overflow: 'hidden',
-    },
-    desc: {
-        fontFamily: DStyles.fonts.medium,
-        fontSize: 8,
-        color: DStyles.colors.subText,
-        textAlign: 'center',
+        margin: 2,
+        fontSize: 10,
+        height: 15,
     }
 });
 

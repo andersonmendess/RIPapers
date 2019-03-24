@@ -1,4 +1,4 @@
-export default {
+const settings = {
     pixabay: {
         base: 'https://pixabay.com/api/?image_type=photo&editors_choice=true',
         getKey: () => {
@@ -27,3 +27,10 @@ export default {
         per_page: '&per_page=40'
     }
 }
+
+const setupAPI = api => {
+    api = settings[api]
+    return api.base + api.getKey() + settings.common.per_page
+}
+
+export default { setupAPI };
