@@ -12,14 +12,14 @@ Header = props => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
-    backgroundColor: DStyles.colors.transparent2,
+    height: 50,
+    backgroundColor: DStyles.colors.main,
   },
   title: {
     color: DStyles.colors.text,
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'center',
-    margin: 15,
+    margin: 12,
     fontFamily: DStyles.fonts.bold
   }
 });

@@ -1,6 +1,5 @@
 import React from 'react'
-import Home from '../screens/Home'
-import Trending from '../screens/Trending'
+import Feed from '../screens/Feed'
 import WallView from '../screens/WallView'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -15,10 +14,9 @@ const configs = {
   }
 }
 
-
 const routes = {
     Home: {
-    screen: Home,
+    screen: () => <Feed type='latest' api='unsplash' />,
     navigationOptions: {
       title: 'Newests',
       header: null,
@@ -30,7 +28,7 @@ const routes = {
     }
   },
   Trend: {
-    screen: Trending,
+    screen: () => <Feed type='popular' api='unsplash' />,
     navigationOptions: {
       title: 'Trending',
       header: null,

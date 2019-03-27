@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import DStyles from '../configs/styles'
 import FeedWallpapers from '../renders/FeedWallpapers'
+import Header from '../components/Header'
 
-class Home extends Component {
+class Feed extends Component {
 
-  
     render(){
         return (
             <View style={styles.container}>
-                <FeedWallpapers type='latest' api='pixabay' />
+                <Header label="RIPapers Alpha" />
+                <FeedWallpapers type={this.props.type} api={this.props.api} />
             </View>
         );
     }
@@ -23,4 +24,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home
+export default Feed
