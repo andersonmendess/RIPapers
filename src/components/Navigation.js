@@ -1,6 +1,6 @@
 import React from 'react'
 import Feed from '../screens/Feed'
-import WallView from '../screens/WallView'
+import Settings from '../screens/Settings'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import DStyle from '../configs/styles'
@@ -39,8 +39,8 @@ const routes = {
       />
     }
   },
-  Categories: {
-    screen: WallView,
+   Categories: {
+    screen: Settings,
     navigationOptions: {
       title: 'Categories',
       header: null,
@@ -51,20 +51,8 @@ const routes = {
       />
     }
   },
-  Favorites: {
-    screen: WallView,
-    navigationOptions: {
-      title: 'Favorites',
-      header: null,
-      tabBarIcon: () => <Icon
-        name="favorite"
-        size={configs.icon.size}
-        color={configs.icon.color}
-      />
-    }
-  },
   Settings: {
-    screen: WallView,
+    screen: Settings,
     navigationOptions: {
       title: 'Settings',
       header: null,

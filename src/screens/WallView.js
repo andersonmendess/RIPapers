@@ -4,11 +4,9 @@ import DStyles from '../configs/styles'
 import FlatBtn from '../components/FlatBtn'
 import FastImage from 'react-native-fast-image'
 
-
 class WallView extends Component {
 
-  render() {     
-
+  render() {
     return (
         <Modal
           animationType="slide"

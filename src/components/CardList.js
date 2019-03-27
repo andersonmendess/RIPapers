@@ -10,9 +10,9 @@ CardList = props => {
 
             // url
             if (item.webformatURL) { // pixabay 
-                url = item.largeImageURL
+                url = item.webformatURL
             } else if (item.urls.small) { // unsplash
-                url = item.urls.regular
+                url = item.urls.small
             }
             // title
             if (item.user.name) { // pixabay

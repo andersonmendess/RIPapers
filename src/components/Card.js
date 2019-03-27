@@ -1,33 +1,21 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback, Dimensions, ActivityIndicator } from 'react-native';
 import DStyles from '../configs/styles'
-import WallView from '../screens/WallView'
 import FastImage from 'react-native-fast-image'
 
 class Card extends Component {
 
-    state = {
-        modalVisible: false,
-      };
-    
-      setModalVisible(visible) {
-        this.setState({modalVisible: visible});
-      }
-
     render() {
         return (
             <View style={styles.container}>
-              <TouchableWithoutFeedback  onPress={() => {this.setModalVisible(!this.state.modalVisible);}} >
                 <View style={styles.card}>
                     <View style={styles.infoContainer}>
-                    <WallView visible={this.state.modalVisible} title={this.props.title} uri={this.props.url} onRequestClose={() => {this.setModalVisible(!this.state.modalVisible);}}/>
                     <FastImage style={ styles.image } source={{ uri: this.props.url , priority: FastImage.priority.high,} } />
                         <View style={styles.info}>
                             <Text numberOfLines={1} style={styles.title}> { this.props.title } </Text>
                         </View>
                     </View>
                 </View>
-            </TouchableWithoutFeedback>
       
             </View>
           );
