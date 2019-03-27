@@ -24,7 +24,7 @@ const settings = {
         },
     },
     common: {
-        per_page: '&per_page=40'
+        per_page: '&per_page=30'
     }
 }
 
@@ -33,4 +33,6 @@ const setupAPI = api => {
     return api.base + api.getKey() + settings.common.per_page
 }
 
-export default { setupAPI };
+export default {
+    setupAPI
+};

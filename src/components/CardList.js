@@ -7,11 +7,12 @@ CardList = props => {
     renderCard = ({ item }) => {
 
         try {
+
             // url
             if (item.webformatURL) { // pixabay 
-                url = item.webformatURL
+                url = item.largeImageURL
             } else if (item.urls.small) { // unsplash
-                url = item.urls.small 
+                url = item.urls.regular
             }
             // title
             if (item.user.name) { // pixabay
@@ -19,7 +20,7 @@ CardList = props => {
             } else if (item.user) { // unsplash
                 title = item.description || item.user
             }
-
+            
         } catch { return }
 
         return (
@@ -29,8 +30,8 @@ CardList = props => {
     }
 
     return (
-        <FlatList numColumns={3} renderItem={renderCard} onEndReached={props.load}
-            onEndReachedThreshold={0.3} data={props.walls} keyExtractor={(item, index) => index}
+        <FlatList numColumns={2} renderItem={renderCard} onEndReached={props.load}
+            onEndReachedThreshold={0.2} data={props.walls} keyExtractor={(item, index) => index}
         />
     )
 

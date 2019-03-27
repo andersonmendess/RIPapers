@@ -36,10 +36,15 @@ class Feed extends Component {
         axios.get(url + '&page=' + page++).then(res => {
             this.state.api == 'pixabay' ? res = res.data.hits : res = res.data
             page > 2 ? walls = walls.concat(res) : walls = res
-            this.setState({ walls, page })
+            this.setState({
+                walls,
+                page
+            })
         }).catch(e => {
             ToastAndroid.show(e.toString(), ToastAndroid.SHORT);
-            this.setState({ url: config.setupAPI(this.state.api) }, this.fetchWalls())
+            this.setState({
+                url: config.setupAPI(this.state.api)
+            }, this.fetchWalls())
         })
     }
 

@@ -83,7 +83,7 @@ const config = {
     initialRouteName: 'Home',
     activeColor: DStyle.colors.text,
     inactiveColor: DStyle.colors.subText,
-    barStyle: { backgroundColor: DStyle.colors.secondary },
+    barStyle: { backgroundColor: DStyle.colors.main },
   }
 
 const StackNavigator = createMaterialBottomTabNavigator(routes, config)
